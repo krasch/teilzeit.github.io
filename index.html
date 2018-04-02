@@ -1,1 +1,38 @@
-Hallo!
+<!DOCTYPE html>
+<html lang="de">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <link rel="stylesheet" href="https://unpkg.com/purecss@1.0.0/build/pure-min.css">
+    <link rel="stylesheet" href="https://unpkg.com/purecss@1.0.0/build/base-min.css">
+    <link rel="stylesheet" href="/teilzeit.css">
+    <script src="teilzeit.js"></script>
+
+    <title>Der Teilzeitslider</title>
+  </head>
+
+  <body>
+    <div class="container">
+        <form class="pure-form pure-form-aligned">
+            <fieldset>
+                <div class="pure-control-group">
+                    <label for="salary">Monatsgehalt (brutto, Vollzeit):</label>
+                    <input id="salary" oninput="calculate();">
+                </div>
+                <div class="pure-control-group">
+                    <label for="percentage">Arbeitszeit:</label>
+                    <input type="range" id="percentage" value="100" min="0" max="100" step="5"
+                           oninput="updateSlider();calculate();" class="slider"> 
+                    <output id="percentageOut">100</output> %
+                </div>
+                <div class="pure-control-group">
+                    <label for="result"> Monatsgehalt (netto):</label>
+                    <output id="result"/>
+                </div>
+            </fieldset>
+          </form>
+    </div>
+   <script>window.onload = calculate</script>
+  </body>
+</html>
